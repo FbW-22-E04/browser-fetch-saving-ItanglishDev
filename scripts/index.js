@@ -9,7 +9,26 @@ const inputFilm = document.querySelector('#input')
 const save = document.querySelector('.btn-save')
 const reset = document.querySelector('.btn-reset')
 
+
+// console.log(newFilm.getMovieData('to live or let die'));
+
 const newFilm = new Client()
 
-console.log(newFilm.getMovieData('to live or let die'));
+// inputFilm.addEventListener('input', () => {
+//   newFilm.getMovieData()
+// })
+
+const viewOne = new View()
+
+save.addEventListener('click', () => {
+
+  newFilm.getMovieData(inputFilm.value)
+    .then(data => {
+
+      viewOne.displayMovieOnPage(data)
+    })
+})
+
+
+
 
