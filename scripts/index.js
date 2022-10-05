@@ -29,6 +29,8 @@ save.addEventListener('click', () => {
     })
 })
 
-
+reset.addEventListener('click', () => {
+  viewOne.removeDisplay()
+})
 
 
