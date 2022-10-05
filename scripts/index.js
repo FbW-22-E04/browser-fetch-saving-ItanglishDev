@@ -9,28 +9,27 @@ const inputFilm = document.querySelector('#input')
 const save = document.querySelector('.btn-save')
 const reset = document.querySelector('.btn-reset')
 
-
-// console.log(newFilm.getMovieData('to live or let die'));
-
+const filmArray = []
 const newFilm = new Client()
-
-// inputFilm.addEventListener('input', () => {
-//   newFilm.getMovieData()
-// })
-
 const viewOne = new View()
 
 save.addEventListener('click', () => {
+  const localStorageItem = localStorage('inputFilm')
+
+  const parsed = JSON.parse(localStorageItem)
+
+  filmArray.push(...parsed)
+  // if (!localStorageItem.include(inputFilm.value))
 
   newFilm.getMovieData(inputFilm.value)
     .then(data => {
 
       viewOne.displayMovieOnPage(data)
     })
+
+  // filmArray.push(inputFilm.value)
 })
 
 reset.addEventListener('click', () => {
   viewOne.removeDisplay()
 })
-
-
